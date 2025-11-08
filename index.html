@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mini React Demo</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 id="title">Count: <span id="count">0</span></h1>
+        <p>Name: <span id="name">World</span></p>
+        <button id="incBtn">Increment</button>
+        <button id="decBtn">Decrement</button>
+
+        <h2>User Info</h2>
+        <p>Name: <span id="userName"></span></p>
+        <p>Age: <span id="userAge"></span></p>
+        <input type="text" id="nameInput" placeholder="Enter name">
+        <input type="number" id="ageInput" placeholder="Enter age">
+    </div>
+
+
+    <script src="./utilities/nano-react.js"></script>
+    <script>
+        const { useState, initNanoReactComponent } = MiniReact;
+
+        // Component 1
+        initNanoReactComponent('counter', function () {
+            const [count, setCount] = useState(0);
+            document.getElementById('count').textContent = count;
+            document.getElementById('incBtn').onclick = () => setCount(count + 1);
+            document.getElementById('decBtn').onclick = () => setCount(count - 1);
+        });
+
+        // Component 2
+        initNanoReactComponent('user', function () {
+            const [name, setName] = useState('');
+            const [age, setAge] = useState(0);
+
+            document.getElementById('userName').textContent = name;
+            document.getElementById('userAge').textContent = age;
+
+            document.getElementById('nameInput').oninput = (e) => setName(e.target.value);
+            document.getElementById('ageInput').oninput = (e) => setAge(Number(e.target.value));
+        });
+    </script>
+</body>
+
+</html>
