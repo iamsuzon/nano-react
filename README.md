@@ -38,10 +38,12 @@ Nano React provides a small set of composable utilities and components to build 
 - Zero runtime dependencies except React
 
 ## Quick Start (example)
-`<script src="./utilities/nano-react.js"></script>`
+```
+<script src="./utilities/nano-react.js"></script>
+```
 
 ```js
- const { useState, initNanoReactComponent } = MiniReact;
+const { useState, initNanoReactComponent } = MiniReact;
 
 initNanoReactComponent('counter', function () {
     const [count, setCount] = useState(0);
